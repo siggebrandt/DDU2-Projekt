@@ -38,5 +38,4 @@ document.querySelector("#generateButton").addEventListener("click", function () 
     generateNumbers();
 });
 
-
 generateNumbers();
