@@ -4,6 +4,16 @@ function createHomeLink() {
     homeLink.textContent = "Home";
     return homeLink;
 }
+let homeLink = document.querySelector("#goHomeLink");
 
-let goHome = document.querySelector("#goHomeLink");
-goHome.appendChild(createHomeLink());
+if (homeLink) {
+    homeLink.appendChild(createHomeLink());
+}
+
+
+
+function randomNumber(max) {
+    return Math.floor(Math.random() * max);
+}
+
+console.log(randomNumber(100))
