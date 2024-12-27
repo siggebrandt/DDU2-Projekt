@@ -15,14 +15,24 @@ function randomNumber() {
 }
 
 let arrayOfRandomNumbers;
+let gridOfNumbers = document.querySelector("#gridOfNumbers");
+
+function writeOutNumbers(array) {
+    gridOfNumbers.innerHTML = "";
+
+    for (number of array) {
+        let numberBox = document.createElement("div");
+        numberBox.classList.add("number");
+        numberBox.textContent = number;
+        gridOfNumbers.appendChild(numberBox);
+    }
+}
 
 function generateNumbers() {
     document.querySelector("#createNumbers").innerHTML =
         `<label>How many numbers in the grid?</label>` +
-        `<input type="text" id="howManyNumbers" size="4">` +
+        `<input type="text" id="howManyNumbers" size="4" value="95">` +
         `<button id="generateButton">Create</button>`;
-
-    let gridOfNumbers = document.querySelector("#gridOfNumbers");
 
     document.querySelector("#generateButton").addEventListener("click", function (e) {
         let numberToGenerate = Number(document.querySelector("input#howManyNumbers").value);
