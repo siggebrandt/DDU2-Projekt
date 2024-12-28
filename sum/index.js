@@ -34,7 +34,6 @@ function updateSelectedNumbersField() {
 
 refreshNumbers();
 
-
 document.querySelector("#generateNumbersButton").addEventListener("click", function () {
     refreshNumbers();
     sumOfSelectedNumbers = 0;
