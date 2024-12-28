@@ -13,7 +13,9 @@ function randomNumber() {
 let arrayOfRandomNumbers;
 
 document.querySelector("#createNumbers").innerHTML =
-    `<label>How many numbers in the grid?</label><input type="text" id="howManyNumbers" size="4" value="95"><button id="generateButton">Create</button>`;
+    `<label>How many numbers in the grid?</label><input type="text" id="howManyNumbers" size="4" value="95"><button id="generateNumbersButton">Create</button>`;
+/*document.querySelector("input#howManyNumbers").focus();
+document.querySelector("input#howManyNumbers").setSelectionRange(2, 2);*/
 
 function generateNumbers() {
     let numberToGenerate = Number(document.querySelector("input#howManyNumbers").value);
@@ -24,7 +26,6 @@ function generateNumbers() {
     while (arrayOfRandomNumbers.length < numberToGenerate) {
         arrayOfRandomNumbers.push(randomNumber());
     }
-    console.log(arrayOfRandomNumbers);
 
     for (number of arrayOfRandomNumbers) {
         let numberBox = document.createElement("div");
@@ -34,7 +35,7 @@ function generateNumbers() {
     }
 }
 
-document.querySelector("#generateButton").addEventListener("click", function () {
+document.querySelector("#generateNumbersButton").addEventListener("click", function () {
     generateNumbers();
 });
 
