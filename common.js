@@ -7,7 +7,7 @@ function createHomeLink() {
 document.querySelector("#goHomeLink").appendChild(createHomeLink());
 
 function randomNumber() {
-    return Math.floor(Math.random() * 99);
+    return Math.floor(Math.random() * 100);
 }
 
 let arrayOfRandomNumbers;
