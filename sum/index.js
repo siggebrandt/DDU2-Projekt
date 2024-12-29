@@ -5,7 +5,7 @@ function refreshNumbers() {
     }
     document.querySelector("#sumOfAllNumbers").textContent = sumOfAllNumbers;
 
-    for (let numberDiv of document.querySelectorAll("#gridOfNumbers .number")) {
+    for (let numberDiv of document.querySelectorAll("#numberContainer .number")) {
         numberDiv.addEventListener("click", function () {
             if (numberDiv.className == "number selectedNumber") {
                 numberDiv.classList.remove("selectedNumber");
@@ -42,7 +42,7 @@ document.querySelector("#generateNumbersButton").addEventListener("click", funct
 
 
 document.querySelector("button#resetSelectedNumbersButton").addEventListener("click", function () {
-    for (let selectedNumberDiv of document.querySelectorAll("#gridOfNumbers .number.selectedNumber")) {
+    for (let selectedNumberDiv of document.querySelectorAll("#numberContainer .number.selectedNumber")) {
         selectedNumberDiv.classList.remove("selectedNumber");
     }
     sumOfSelectedNumbers = 0;

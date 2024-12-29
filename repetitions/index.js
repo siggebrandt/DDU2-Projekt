@@ -1,7 +1,7 @@
 let repetitionNumbers = [];
 
 function calculateRepetition() {
-    let amountOfNumbers = document.querySelectorAll("#gridOfNumbers .number").length;
+    let amountOfNumbers = document.querySelectorAll("#numberContainer .number").length;
     let generatedNumbers = [];
 
     repetitionNumbers = [];
@@ -13,7 +13,7 @@ function calculateRepetition() {
     }
 
     for (let i = 0; i < amountOfNumbers; i++) {
-        generatedNumbers.push(Number(document.querySelectorAll("#gridOfNumbers .number")[i].textContent));
+        generatedNumbers.push(Number(document.querySelectorAll("#numberContainer .number")[i].textContent));
     }
 
     for (i = 0; i < amountOfNumbers; i++) {
@@ -28,8 +28,8 @@ function calculateRepetition() {
 calculateRepetition();
 
 function mostRepeatedNumbers() {
-    let input = document.querySelector("#mostRepeatedNumbers");
-    input.value = "";
+    let textField = document.querySelector("#mostRepeatedNumbers");
+    textField.textContent = "";
     let mostRepeated = [repetitionNumbers[0]];
 
 
@@ -47,14 +47,14 @@ function mostRepeatedNumbers() {
         }
     }
     for (i = 0; i < mostRepeated.length; i++) {
-        input.value += mostRepeated[i].number;
+        textField.textContent += mostRepeated[i].number;
         console.log(mostRepeated[i].number)
     }
 }
 
 function numbersNotInPlace() {
-    let input = document.querySelector("#numbersNotInPlace");
-    input.value = "";
+    let textField = document.querySelector("#numbersNotInPlace");
+    textField.textContent = "";
     let notInPlace = [];
     for (i = 0; i < repetitionNumbers.length; i++) {
         if (repetitionNumbers[i].repetition == 0) {
@@ -63,7 +63,7 @@ function numbersNotInPlace() {
     }
     console.log(notInPlace);
     let stringOfNotInPlace = notInPlace.join(", ");
-    input.value = stringOfNotInPlace;
+    textField.textContent = stringOfNotInPlace;
     // nu splica arrayen och lägg in den i input fältet som för övrigt måste anpasas till att göras större!
 }
 

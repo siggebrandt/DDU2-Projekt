@@ -19,9 +19,9 @@ document.querySelector("input#howManyNumbers").setSelectionRange(2, 2);*/
 
 function generateNumbers() {
     let numberToGenerate = Number(document.querySelector("input#howManyNumbers").value);
-    let gridOfNumbers = document.querySelector("#gridOfNumbers");
+    let numberContainer = document.querySelector("#numberContainer");
     arrayOfRandomNumbers = [];
-    gridOfNumbers.innerHTML = "";
+    numberContainer.innerHTML = "";
 
     while (arrayOfRandomNumbers.length < numberToGenerate) {
         arrayOfRandomNumbers.push(randomNumber());
@@ -31,7 +31,7 @@ function generateNumbers() {
         let numberBox = document.createElement("div");
         numberBox.classList.add("number");
         numberBox.textContent = number;
-        gridOfNumbers.appendChild(numberBox);
+        numberContainer.appendChild(numberBox);
     }
 }
 

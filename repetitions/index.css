@@ -1,3 +1,7 @@
 .number.selectedNumber {
     background-color: lightskyblue;
 }
+
+.textArea {
+    width: 45em;
+}

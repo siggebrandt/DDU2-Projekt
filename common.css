@@ -34,10 +34,19 @@ input {
     margin: 2px 0;
 }
 
-.textArea {
+.numberArea {
     border: ridge 2px;
     padding: 2px 5px;
     min-width: 7em;
+    /* min-height: 5em; */
+    overflow: auto;
+    margin: 0 6px;
+}
+
+.textArea {
+    border: ridge 2px;
+    padding: 2px 5px;
+    min-width: 14em;
     /* min-height: 5em; */
     overflow: auto;
     margin: 0 6px;
@@ -53,20 +62,25 @@ main {
     margin: 0 10px;
 }
 
-#gridOfNumbers {
-    display: grid;
+#numberContainer {
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 60px));
+    /* grid-template-columns: repeat(auto-fit, minmax(60px, 60px)); */
     margin-top: 20px;
+    padding-left: 6px;
 }
 
 .number {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(5.27% - 6px);
+    min-width: 55px;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    font-size: 1.2em;
     background-color: gainsboro;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    font-size: 19px;
 }
