@@ -3,7 +3,7 @@ function refreshNumbers() {
     for (let number of arrayOfRandomNumbers) {
         sumOfAllNumbers += number;
     }
-    document.querySelector("input#sumOfAllNumbers").value = sumOfAllNumbers;
+    document.querySelector("#sumOfAllNumbers").textContent = sumOfAllNumbers;
 
     for (let numberDiv of document.querySelectorAll("#gridOfNumbers .number")) {
         numberDiv.addEventListener("click", function () {
@@ -25,10 +25,10 @@ let sumOfSelectedNumbers = 0;
 
 function updateSelectedNumbersField() {
     if (sumOfSelectedNumbers == 0) {
-        document.querySelector("input#sumOfSelectedNumbers").value = "-";
+        document.querySelector("#sumOfSelectedNumbers").textContent = "-";
     }
     else {
-        document.querySelector("input#sumOfSelectedNumbers").value = sumOfSelectedNumbers;
+        document.querySelector("#sumOfSelectedNumbers").textContent = sumOfSelectedNumbers;
     }
 }
 

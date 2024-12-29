@@ -30,8 +30,23 @@ input {
     margin: 0 5px;
 }
 
+.label {
+    margin: 2px 0;
+}
+
+.textArea {
+    border: ridge 2px;
+    padding: 2px 5px;
+    min-width: 7em;
+    /* min-height: 5em; */
+    overflow: auto;
+    margin: 0 6px;
+}
+
 #functions {
     margin-top: 13px;
+    display: flex;
+    justify-content: center;
 }
 
 main {
