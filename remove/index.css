@@ -1,0 +1,15 @@
+.number.selectedNumber {
+    background-color: #fe9a00;
+}
+
+.number.removedNumber {
+    background-color: #f77565;
+}
+
+.number:hover {
+    background-color: #f9e7cf;
+}
+
+.numberArea {
+    min-width: 4em !important;
+}
