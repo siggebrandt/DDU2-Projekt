@@ -1,25 +1,31 @@
-let repetitionNumbers = [];
-let amountOfNumbers = document.querySelectorAll("#numberContainer .number").length;
+let arrayOfNumberRepetitions = [];
+let totalNumbers = document.querySelectorAll("#numberContainer .number").length;
 
-function calculateRepetition() {
-    let generatedNumbers = [];
+function joinArray(array) {
+    return array.join(", ")
+}
 
-    repetitionNumbers = [];
+function calculateRepetitions() {
+    let currentGeneratedNumbers = [];
+    arrayOfNumberRepetitions = [];
+
     for (let i = 0; i <= 99; i++) {
-        repetitionNumbers.push({
+        arrayOfNumberRepetitions.push({
             number: i,
             repetition: 0,
         })
     }
 
-    for (let i = 0; i < amountOfNumbers; i++) {
-        generatedNumbers.push(Number(document.querySelectorAll("#numberContainer .number")[i].textContent));
+    for (let i = 0; i < totalNumbers; i++) {
+        currentGeneratedNumbers.push(
+            Number(document.querySelectorAll("#numberContainer .number")[i].textContent)
+        );
     }
 
-    for (let i = 0; i < amountOfNumbers; i++) {
-        for (j = 0; j < repetitionNumbers.length; j++) {
-            if (generatedNumbers[i] == repetitionNumbers[j].number) {
-                repetitionNumbers[j].repetition += 1;
+    for (let i = 0; i < currentGeneratedNumbers.length; i++) {
+        for (j = 0; j < arrayOfNumberRepetitions.length; j++) {
+            if (currentGeneratedNumbers[i] == arrayOfNumberRepetitions[j].number) {
+                arrayOfNumberRepetitions[j].repetition += 1;
             }
         }
     }
@@ -29,59 +35,57 @@ function mostRepeatedNumbers() {
     let textField = document.querySelector("#mostRepeatedNumbers");
     textField.textContent = "";
 
-    let mostRepeatedNumbersArray = [];
-    let highestRepetition = 0;
+    let mostRepeated = [];
+    let highestRepetitionCount = 0;
 
-    for (let i = 0; i < repetitionNumbers.length; i++) {
-        if (repetitionNumbers[i].repetition > highestRepetition) {
-            mostRepeatedNumbersArray = [repetitionNumbers[i]];
-            highestRepetition = repetitionNumbers[i].repetition;
+    for (let i = 0; i < arrayOfNumberRepetitions.length; i++) {
+        if (arrayOfNumberRepetitions[i].repetition > highestRepetitionCount) {
+            mostRepeated = [arrayOfNumberRepetitions[i]];
+            highestRepetitionCount = arrayOfNumberRepetitions[i].repetition;
         }
-        else if (repetitionNumbers[i].repetition == highestRepetition) {
-            mostRepeatedNumbersArray.push(repetitionNumbers[i]);
+        else if (arrayOfNumberRepetitions[i].repetition == highestRepetitionCount) {
+            mostRepeated.push(arrayOfNumberRepetitions[i]);
         }
     }
 
-    let textFieldNumbers = [];
-    for (let i = 0; i < mostRepeatedNumbersArray.length; i++) {
-        textFieldNumbers.push(mostRepeatedNumbersArray[i].number);
+    let mostRepeatedNumbersList = [];
+    for (let i = 0; i < mostRepeated.length; i++) {
+        mostRepeatedNumbersList.push(mostRepeated[i].number);
     }
-    textField.textContent += `${textFieldNumbers.join(", ")} (Repeated ${highestRepetition} times)`;
+    textField.textContent += `${joinArray(mostRepeatedNumbersList)} (Repeated ${highestRepetitionCount} times)`;
 
-    for (let i = 0; i < amountOfNumbers; i++) {
-        for (let j = 0; j < mostRepeatedNumbersArray.length; j++) {
-            if (document.querySelectorAll("#numberContainer .number")[i].textContent == textFieldNumbers[j]) {
-                document.querySelectorAll("#numberContainer .number")[i].classList.add("selectedNumber");
-            }
+    for (let i = 0; i < totalNumbers; i++) {
+        let currentNumberElement = document.querySelectorAll("#numberContainer .number")[i];
+        if (mostRepeatedNumbersList.includes(Number(currentNumberElement.textContent))) {
+            currentNumberElement.classList.add("selectedNumber");
         }
-
     }
 }
 
-function numbersNotInPlace() {
+function findMissingNumbers() {
     let textField = document.querySelector("#numbersNotInPlace");
     textField.textContent = "";
-    let notInPlace = [];
-    for (let i = 0; i < repetitionNumbers.length; i++) {
-        if (repetitionNumbers[i].repetition == 0) {
-            notInPlace.push(repetitionNumbers[i].number);
+
+    let missingNumbers = [];
+    for (let i = 0; i < arrayOfNumberRepetitions.length; i++) {
+        if (arrayOfNumberRepetitions[i].repetition == 0) {
+            missingNumbers.push(arrayOfNumberRepetitions[i].number);
         }
     }
-    let stringOfNotInPlace = notInPlace.join(", ");
-    textField.textContent = stringOfNotInPlace;
+    textField.textContent = joinArray(missingNumbers);
     if (textField.textContent == "") {
         textField.textContent = "All numbers are in place.";
     }
 }
 
-calculateRepetition();
+calculateRepetitions();
 mostRepeatedNumbers();
-numbersNotInPlace();
+findMissingNumbers();
 
 document.querySelector("button#generateNumbersButton").addEventListener("click", function () {
-    calculateRepetition();
+    totalNumbers = document.querySelectorAll("#numberContainer .number").length;
+    console.log(totalNumbers);
+    calculateRepetitions();
     mostRepeatedNumbers();
-    numbersNotInPlace();
+    findMissingNumbers();
 });
-
-// fungerar inte riktigt som det ska
