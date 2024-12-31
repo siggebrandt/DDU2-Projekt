@@ -1,0 +1,13 @@
+.number:hover {
+    background-color: #7bc5e9;
+}
+
+.number.clearedNumber {
+    background-color: #fe0000;
+    color: transparent;
+    user-select: none;
+}
+
+.number.clearedNumber:hover {
+    background-color: #fe9a00;
+}
