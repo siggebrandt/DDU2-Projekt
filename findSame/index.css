@@ -1,0 +1,7 @@
+.number.selectedNumber {
+    background-color: lightgreen;
+}
+
+.label#copiesFoundText {
+    margin-right: 5px;
+}
