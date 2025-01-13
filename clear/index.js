@@ -2,6 +2,7 @@ let fillClearedButton = document.getElementById("fillClearedButton");
 let allNumbers = document.querySelectorAll("#numberContainer .number");
 
 function clearNumber(element) {
+    element.innerHTML = randomNumber();
     if (element.classList.contains("clearedNumber")) {
         element.classList.remove("clearedNumber");
     }

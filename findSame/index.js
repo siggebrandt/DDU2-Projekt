@@ -36,7 +36,6 @@ createEventListeners();
 resetButton.addEventListener("click", function () {
     copiesFoundText.textContent = "Click on a number to find copies";
     resetSelected();
-
 });
 
 document.querySelector("#generateNumbersButton").addEventListener("click", function () {

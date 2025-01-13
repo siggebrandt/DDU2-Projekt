@@ -12,10 +12,10 @@ function randomNumber() {
 
 let arrayOfRandomNumbers;
 
-document.querySelector("#createNumbers").innerHTML =
-    `<label>How many numbers in the grid?</label><input type="text" id="howManyNumbers" size="4" value="95"><button id="generateNumbersButton">Create</button>`;
-/*document.querySelector("input#howManyNumbers").focus();
-document.querySelector("input#howManyNumbers").setSelectionRange(2, 2);*/
+document.querySelector("#createNumbers").innerHTML = `
+    <label>How many numbers in the grid?</label>
+    <input type="text" id="howManyNumbers" size="4" value="95">
+    <button id="generateNumbersButton">Create</button>`;
 
 function generateNumbers() {
     let numberToGenerate = Number(document.querySelector("input#howManyNumbers").value);

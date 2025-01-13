@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin: 0 8px 12px;
     border-bottom: 1px solid lightgray;
     padding: 15px 0;
     background-color: white;
@@ -29,14 +29,25 @@ nav a,
     border-radius: 6px;
 }
 
+nav ul {
+    flex-basis: auto;
+    flex-shrink: 0;
+}
+
 nav a:hover {
     background-color: rgb(211, 211, 211);
 }
 
-#controls {
-    display: grid;
+main {
+    max-width: 1100px;
+    margin: auto;
+}
+
+#mainPageLinks {
+    display: flex;
     justify-content: center;
-    text-align: center;
+    padding: 14px;
+    gap: 15px;
 }
 
 button,
@@ -66,42 +77,33 @@ input {
     margin: 0 6px;
 }
 
+#controls {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
 #functions {
     margin-top: 13px;
     display: flex;
     justify-content: center;
 }
 
-main {
-    margin: 0 10px;
-}
-
 #numberContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    /* grid-template-columns: repeat(auto-fit, minmax(60px, 60px)); */
     margin-top: 20px;
     padding-left: 6px;
 }
 
 .number {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc(5.27% - 6px);
-    min-width: 55px;
-    aspect-ratio: 1 / 1;
+    width: 55px;
+    height: 55px;
     border-radius: 10px;
     font-size: 1.2em;
     background-color: gainsboro;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#mainPageLinks {
-    display: flex;
-    justify-content: center;
-    padding: 14px;
-    gap: 10px;
 }
